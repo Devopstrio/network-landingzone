@@ -1,0 +1,5 @@
+from fastapi import APIRouter
+router = APIRouter()
+@router.get('/')
+def get_connectivity():
+    return {'status': 'ok', 'lz_component': 'connectivity'}
