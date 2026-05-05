@@ -4,17 +4,16 @@
 
 <h1>Network Landing Zone</h1>
 
-<p><strong>The Institutional-Grade Platform for Multi-Cloud Hub-and-Spoke Networking, Transit Routing, and Zero Trust Architecture</strong></p>
+<p><strong>The Institutional-Grade Platform for Multi-Cloud Hub-and-Spoke Networking, Transit Routing, and Zero Trust Architecture.</strong></p>
 
-[![Standard: Landing--Zone](https://img.shields.io/badge/Standard-Landing--Zone-teal.svg?style=for-the-badge&labelColor=000000)]()
-[![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-teal.svg?style=for-the-badge&labelColor=000000)]()
+[![Standard: Landing-Zone-Excellence](https://img.shields.io/badge/Standard-Landing--Zone--Excellence-teal.svg?style=for-the-badge&labelColor=000000)]()
+[![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-emerald.svg?style=for-the-badge&labelColor=000000)]()
 [![Topology: Hub--and--Spoke](https://img.shields.io/badge/Topology-Hub--and--Spoke-blue.svg?style=for-the-badge&labelColor=000000)]()
-[![Security: Zero--Trust](https://img.shields.io/badge/Security-Zero--Trust-emerald.svg?style=for-the-badge&labelColor=000000)]()
 
 <br/>
 
 > **"Secure connectivity is the foundation of cloud adoption."** 
-> Network Landing Zone is a flagship solution for Cloud Architects, Network Engineers, and Security Teams. By orchestrating a standardized Hub-and-Spoke architecture, centralized transit routing, and policy-as-code firewalling, it provides a scalable, secure, and observable foundation for all enterprise workloads across AWS, Azure, and GCP.
+> **Network Landing Zone** is an enterprise-grade platform designed to provide a secure, measurable, and highly automated foundation for global cloud networking. It orchestrates the complex lifecycle of network infrastructure—from multi-cloud Hub-and-Spoke provisioning and centralized transit routing to automated IPAM and unified zero-trust governance.
 
 </div>
 
@@ -22,623 +21,263 @@
 
 ## 🏛️ Executive Summary
 
-The **Network Landing Zone Platform** is a specialized flagship solution designed for Global Enterprises, Financial Institutions, and Regulated Industries. As organizations migrate critical workloads to the cloud, flat networks and point-to-point connections lead to unmanageable complexity, security breaches, and routing loops. This platform addresses these challenges using an "Architecture-First" framework.
+Fragmented cloud networks and manual routing configurations are strategic operational liabilities; lack of a standardized network landing zone is a primary barrier to organizational agility. Organizations fail to scale their cloud presence not because of a lack of bandwidth, but because of fragmented topology standards, lack of centralized security inspection, and an inability to orchestrate connectivity with operational precision.
 
-This platform provides a **Centralized Cloud Network Hub**. It demonstrates how to orchestrate institutional cloud networking—using **FastAPI**, **React 18**, **Terraform**, and **Transit Gateways**—to create a "Secure-by-Default" topology. By providing **Hub-and-Spoke Isolation**, **Centralized Inspection**, **Cross-Cloud Peering**, and **Automated IPAM**, it enables organizations to deploy hundreds of isolated spoke networks that securely communicate through a governed central hub.
-
----
-
-## 📉 The "Spaghetti Network" Problem
-
-Enterprises scaling cloud footprints without a Landing Zone face existential challenges:
-- **Topology Chaos**: Point-to-point VPC peering creates an unmanageable N*(N-1)/2 mesh network that is impossible to secure or audit.
-- **Security Blind Spots**: Lack of centralized traffic inspection (North/South and East/West) allows lateral movement in the event of a breach.
-- **IP Overlap**: Decentralized network creation inevitably leads to overlapping CIDR blocks, preventing future connectivity.
-- **Multi-Cloud Islands**: Inability to establish standardized, secure, high-bandwidth connections between AWS, Azure, GCP, and on-premises datacenters.
+This platform provides the **Transit Intelligence Plane**. It implements a complete **Enterprise Network-as-Code Framework**, enabling Network and Platform teams to manage global connectivity as a first-class citizen. By automating the provisioning of isolated spoke networks and orchestrating real-time security edge guardrails, we ensure that every organizational asset—from public-facing web applications to backend financial databases—is connected by default, audited for history, and strictly aligned with institutional cloud adoption frameworks.
 
 ---
 
-## 🚀 Strategic Drivers & Business Outcomes
+## 📐 Architecture Storytelling: Principal Reference Models
 
-### 🎯 Strategic Drivers
-- **Standardized Hub-and-Spoke Topology**: Enforcing a strict topology where all traffic routes through a central, highly governed Hub.
-- **Centralized Security Inspection**: Forcing all inter-spoke (East/West) and internet (North/South) traffic through Next-Gen Firewalls (NGFW).
-- **Global Transit Architecture**: Utilizing Transit Gateways / Virtual WANs to simplify routing and enable multi-region connectivity.
+### 1. Principal Architecture: Global Network Landing Zone & Transit Intelligence Plane
+This diagram illustrates the end-to-end flow from multi-cloud Hub provisioning and spoke connectivity to centralized security inspection, routing, and institutional network auditing.
 
-### 💰 Business Outcomes
-- **100% Policy Enforcement**: Guaranteeing that no network traffic bypasses security inspection controls.
-- **Zero IP Conflict**: Centralized IP Address Management (IPAM) ensures scalable allocation across the entire enterprise.
-- **Rapid Spoke Provisioning**: Reducing the time to provision a secure, connected application network from weeks to minutes.
-
----
-
-## 📐 Architecture Storytelling: 80+ Advanced Diagrams
-
-### 1. Executive Hub-and-Spoke Architecture
-*The global flow of network traffic through the central inspection hub.*
 ```mermaid
-graph TD
-    subgraph "On-Premises"
-        DC[Corporate Datacenter]
+graph LR
+    %% Subgraph Definitions
+    subgraph HubNetwork["Central Transit Hub"]
+        direction TB
+        TGW["Transit Gateway / vWAN"]
+        NGFW["Next-Gen Firewalls"]
+        NAT["Central NAT Gateway"]
     end
 
-    subgraph "Hub Network (Central Governance)"
-        TGW[Transit Gateway]
-        FW[Next-Gen Firewall Array]
-        NAT[Central NAT Gateway]
+    subgraph IntelligenceEngine["Transit Intelligence Hub"]
+        direction TB
+        API["FastAPI Network Gateway"]
+        IPAM["IPAM & CIDR Allocator"]
+        RouteMgr["Routing & Peering Manager"]
+        DNS["Central DNS Resolver"]
     end
 
-    subgraph "Spoke Networks (Workloads)"
-        Prod[Prod Spoke VPC/VNet]
-        NonProd[NonProd Spoke VPC/VNet]
-        Shared[Shared Services Spoke]
+    subgraph SpokeNetworks["Workload Spoke Fleet"]
+        direction TB
+        Prod["Prod Spoke VPC/VNet"]
+        NonProd["Non-Prod Spoke VPC/VNet"]
+        Shared["Shared Services Spoke"]
     end
 
-    DC <-->|DirectConnect/ExpressRoute| TGW
-    Prod <-->|VPC Attachment| TGW
-    NonProd <-->|VPC Attachment| TGW
-    Shared <-->|VPC Attachment| TGW
+    subgraph OperationsHub["Institutional Network Hub"]
+        direction TB
+        Scorecard["Network Maturity Score"]
+        Analytics["Latency & Throughput Stats"]
+        Audit["Forensic Network Metadata Lake"]
+    end
+
+    subgraph DevOps["Network-as-Code Orchestration"]
+        direction TB
+        TF["Terraform Network Modules"]
+        GitOps["GitOps Connectivity Sync"]
+        ChatOps["ChatOps Approval Hub"]
+    end
+
+    %% Flow Arrows
+    SpokeNetworks -->|1. Request Attachment| API
+    API -->|2. Allocate CIDR| IPAM
+    IPAM -->|3. Provision Transit| HubNetwork
+    HubNetwork -->|4. Inspect Traffic| NGFW
     
-    TGW -->|East/West Routing| FW
-    TGW -->|North/South Routing| NAT
+    NGFW -->|5. Route to Destination| SpokeNetworks
+    API -->|6. Resolve Names| DNS
+    DNS -->|7. Sync Records| SpokeNetworks
+    
+    API -->|8. Visualize Health| Scorecard
+    Scorecard -->|9. Track Cost| Analytics
+    Scorecard -->|10. Record Event| Audit
+    
+    TF -->|11. Provision Hub| IntelligenceEngine
+    GitOps -->|12. Deploy Spokes| SpokeNetworks
+    Audit -->|13. Improve Topology| HubNetwork
+
+    %% Styling
+    classDef hub fill:#f5f5f5,stroke:#616161,stroke-width:2px;
+    classDef intel fill:#e0f2f1,stroke:#004d40,stroke-width:2px;
+    classDef spokes fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef ops fill:#ede7f6,stroke:#311b92,stroke-width:2px;
+    classDef devops fill:#fffde7,stroke:#f57f17,stroke-width:2px;
+
+    class HubNetwork hub;
+    class IntelligenceEngine intel;
+    class SpokeNetworks spokes;
+    class OperationsHub ops;
+    class DevOps devops;
 ```
 
-### 2. Traffic Inspection Flow (East/West)
-*How inter-spoke traffic is forced through security inspection.*
-```mermaid
-sequenceDiagram
-    participant SpokeA as App A (Spoke 1)
-    participant TGW as Transit Gateway
-    participant FW as Firewall (Hub)
-    participant SpokeB as App B (Spoke 2)
+### 2. The Network LZ Lifecycle Flow
+The continuous path of a landing zone from initial design and provisioning to active connection, security enforcement, and institutional forensic auditing.
 
-    SpokeA->>TGW: Send packet to App B
-    Note over TGW: Route Table: Send to FW
-    TGW->>FW: Forward for inspection
-    FW->>FW: Apply Zero Trust IPS/IDS Rules
-    FW->>TGW: Packet clean, forward back
-    Note over TGW: Route Table: Send to Spoke 2
-    TGW->>SpokeB: Deliver packet
-```
-
-### 3. Multi-Cloud Transit Connectivity
-```mermaid
-graph LR
-    subgraph "AWS Region"
-        AWS_TGW[AWS Transit Gateway]
-    end
-    subgraph "Azure Region"
-        AZ_VWAN[Azure Virtual WAN]
-    end
-    subgraph "Equinix/Megaport"
-        Fabric[Cloud Exchange Fabric]
-    end
-
-    AWS_TGW <-->|Direct Connect| Fabric
-    AZ_VWAN <-->|ExpressRoute| Fabric
-```
-
-### 4. Zero Trust Network Segmentation
-```mermaid
-graph TD
-    User[End User] -->|VPN/ZTNA| Gateway[Zero Trust Gateway]
-    Gateway -->|Auth| IDP[Identity Provider]
-    Gateway -->|Access Check| Policy[Segmentation Engine]
-    Policy -->|Allow: Port 443| App[Protected Application]
-    Policy -->|Deny| DB[Backend Database]
-```
-
-### 5. Private DNS Resolution Architecture
 ```mermaid
 graph LR
-    SpokeA[Spoke A Client] --> Resolver[Inbound Endpoint]
-    Resolver --> HubDNS[Hub Central DNS]
-    HubDNS --> Auth[Authoritative Zones]
-    HubDNS --> Outbound[Outbound Endpoint]
-    Outbound --> OnPrem[On-Premises DNS]
+    Design["Design Topology"] --> Provision["Provision Hub"]
+    Provision --> Connect["Connect Spokes"]
+    Connect --> Secure["Secure Traffic"]
+    Secure --> Audit["Forensic Audit"]
 ```
 
-### 6. Network Provisioning Automation
+### 3. Hub-and-Spoke Global Transit Topology
+Strategic centralization of multi-region connectivity in a "Hub" network, providing a single transit point for all inter-spoke and hybrid cloud traffic.
+
 ```mermaid
-stateDiagram-v2
-    [*] --> Request: Spoke Requested
-    Request --> IPAM: Allocate CIDR
-    IPAM --> Plan: Generate Terraform
-    Plan --> Apply: Create VPC/Subnets
-    Apply --> Attach: Connect to Transit GW
-    Attach --> Route: Update Route Tables
-    Route --> [*]
+graph LR
+    Hub["Global Transit Hub"] -->|Attach| US_Spoke["US-East Spoke"]
+    Hub -->|Attach| EU_Spoke["EU-West Spoke"]
+    Hub -->|Connect| OnPrem["On-Prem Datacenter"]
+    Hub --- TGW["Transit Gateway"]
 ```
 
-### 7. Multi-Region Failover Architecture
+### 4. Security Edge & DMZ Architecture
+Standardizing the implementation of Web Application Firewalls (WAF), Next-Gen Firewalls (NGFW), and Ingress Controllers at the network edge to ensure consistent protection.
+
 ```mermaid
 graph TD
-    Global[Global Load Balancer] --> RegionA[Primary Region Hub]
-    Global -.->|Failover| RegionB[Secondary Region Hub]
-    RegionA <-->|Inter-Region Peering| RegionB
+    User["Internet User"] --> WAF["WAF Protection"]
+    WAF --> LB["Ingress Load Balancer"]
+    LB --> NGFW["Firewall Inspection"]
+    NGFW --> App["Workload Application"]
 ```
 
-### 8. Global Audit & Drift Detection
+### 5. Private Link & Service Provider Mesh
+Securely exposing internal services across the landing zone using Private Link endpoints, eliminating the need for complex VPC peering or public IP exposure.
+
 ```mermaid
 graph LR
-    Network[Running State] --> Scanner[Drift Scanner]
-    Git[IaC Source of Truth] --> Scanner
-    Scanner -->|Mismatch| Alert[Trigger Remediation]
+    Consumer["Spoke Consumer"] --> Endpoint["Private Endpoint"]
+    Endpoint -->|Private Link| Service["Hub Shared Service"]
+    Service --- Backend["Internal Application"]
 ```
 
-### 9. Micro-segmentation Enforcer
+### 6. Hybrid Cloud Connectivity (VPN/Direct Connect)
+Orchestrating high-bandwidth, low-latency connections between institutional on-premises datacenters and the cloud backbone using managed VPN and Direct Connect/ExpressRoute.
+
+```mermaid
+graph LR
+    DC["Corporate DC"] -->|Direct Connect| Router["Customer Router"]
+    Router -->|IPsec VPN| Hub["Cloud Network Hub"]
+    Hub --- VGW["Virtual Gateway"]
+```
+
+### 7. Institutional Network LZ Scorecard
+Grading organizational performance based on key indicators: Network Availability, Segment Isolation, and Bandwidth Cost Efficiency.
+
 ```mermaid
 graph TD
-    PodA[Frontend Pod] --> NetworkPolicy[Kubernetes CNI]
-    NetworkPolicy --> PodB[Backend Pod]
-    NetworkPolicy -.->|Deny| PodC[Analytics Pod]
+    Post["Network Health: 97%"] --> Risk["Topology Drift: 3%"]
+    Post --- C1["Availability (99.99%)"]
+    Post --- C2["Isolation (100%)"]
 ```
 
-### 10. Executive Network Dashboard
-```mermaid
-graph LR
-    API[Backend API] --> React[Vite / React Hub]
-    React --> Recharts[Visual Analytics]
-    Recharts --> Executive[Topology Insights]
-```
-
-### 11. Network landing zone flow
-```mermaid
-graph LR
-    N[Netw] --> L[Land]
-```
-
-### 12. Hub and spoke model
-```mermaid
-graph LR
-    H[HubA] --> S[Spok]
-```
-
-### 13. Transit gateway routing
-```mermaid
-graph LR
-    T[Tran] --> G[Gate]
-```
-
-### 14. VPC attachment lifecycle
-```mermaid
-graph LR
-    V[VPCA] --> L[Life]
-```
-
-### 15. Ingress traffic flow
-```mermaid
-graph LR
-    I[Ingr] --> T[Traf]
-```
-
-### 16. Egress traffic flow
-```mermaid
-graph LR
-    E[Egre] --> T[Traf]
-```
-
-### 17. Firewall inspection loop
-```mermaid
-graph LR
-    F[Fire] --> I[Insp]
-```
-
-### 18. Policy-as-code deployment
-```mermaid
-graph LR
-    P[Poli] --> D[Depl]
-```
-
-### 19. IPAM allocation flow
-```mermaid
-graph LR
-    I[IPAM] --> A[Allo]
-```
-
-### 20. Route table propagation
-```mermaid
-graph LR
-    R[Rout] --> P[Prop]
-```
-
-### 21. Multi-cloud peering
-```mermaid
-graph LR
-    M[Mult] --> P[Peer]
-```
-
-### 22. VPN IPSec tunnel setup
-```mermaid
-graph LR
-    V[VPN] --> I[IPSe]
-```
-
-### 23. Private link endpoint
-```mermaid
-graph LR
-    P[Priv] --> L[Link]
-```
-
-### 24. DNS forwarding rules
-```mermaid
-graph LR
-    D[DNS] --> F[Forw]
-```
-
-### 25. Shared services connectivity
-```mermaid
-graph LR
-    S[Shar] --> C[Conn]
-```
-
-### 26. Segmentation policy check
-```mermaid
-graph LR
-    S[Segm] --> P[Poli]
-```
-
-### 27. High availability design
-```mermaid
-graph LR
-    H[High] --> A[Avai]
-```
-
-### 28. Infrastructure: Hub Network
-```mermaid
-graph LR
-    I[Infr] --> H[HubN]
-```
-
-### 29. Infrastructure: Spoke Network
-```mermaid
-graph LR
-    I[Infr] --> S[Spok]
-```
-
-### 30. Infrastructure: Transit
-```mermaid
-graph LR
-    I[Infr] --> T[Tran]
-```
-
-### 31. Infrastructure: Kubernetes
-```mermaid
-graph LR
-    I[Infr] --> K[Kube]
-```
-
-### 32. Monitoring: Prometheus
-```mermaid
-graph LR
-    M[Moni] --> P[Prom]
-```
-
-### 33. Monitoring: Grafana
-```mermaid
-graph LR
-    M[Moni] --> G[Graf]
-```
-
-### 34. Monitoring: Alerts
-```mermaid
-graph LR
-    M[Moni] --> A[Aler]
-```
-
-### 35. CI/CD: Build pipeline
-```mermaid
-graph LR
-    C[CICD] --> B[Buil]
-```
-
-### 36. CI/CD: Test pipeline
-```mermaid
-graph LR
-    C[CICD] --> T[Test]
-```
-
-### 37. CI/CD: Deploy pipeline
-```mermaid
-graph LR
-    C[CICD] --> D[Depl]
-```
-
-### 38. Frontend: Dashboard
-```mermaid
-graph LR
-    F[Fron] --> D[Dash]
-```
-
-### 39. Frontend: Topology Map
-```mermaid
-graph LR
-    F[Fron] --> T[Topo]
-```
-
-### 40. Frontend: Security Rules
-```mermaid
-graph LR
-    F[Fron] --> S[Secu]
-```
-
-### 41. API: Auth flow
-```mermaid
-graph LR
-    A[API] --> A[Auth]
-```
-
-### 42. API: Network list
-```mermaid
-graph LR
-    A[API] --> N[Netw]
-```
+### 8. Identity & RBAC for Network Governance
+Managing fine-grained access to transit routing tables, firewall policies, and peering connections between Network Architects, Spoke Owners, and Security Auditors.
 
-### 43. API: Routing tables
 ```mermaid
-graph LR
-    A[API] --> R[Rout]
-```
-
-### 44. API: Policy status
-```mermaid
-graph LR
-    A[API] --> P[Poli]
-```
-
-### 45. Worker: Provisioning
-```mermaid
-graph LR
-    W[Work] --> P[Prov]
-```
-
-### 46. Worker: Validation
-```mermaid
-graph LR
-    W[Work] --> V[Vali]
-```
-
-### 47. Worker: Audit
-```mermaid
-graph LR
-    W[Work] --> A[Audi]
-```
-
-### 48. Worker: Policy
-```mermaid
-graph LR
-    W[Work] --> P[Poli]
-```
-
-### 49. Blueprint: Prod Spoke
-```mermaid
-graph LR
-    B[Blue] --> P[Prod]
-```
-
-### 50. Blueprint: Dev Spoke
-```mermaid
-graph LR
-    B[Blue] --> D[Dev]
-```
-
-### 51. Workflow: Create Spoke
-```mermaid
-graph LR
-    W[Work] --> C[Crea]
-```
-
-### 52. Workflow: Route Update
-```mermaid
-graph LR
-    W[Work] --> R[Rout]
-```
-
-### 53. Policy: Egress filtering
-```mermaid
-graph LR
-    P[Poli] --> E[Egre]
-```
-
-### 54. Integration: AWS CloudWAN
-```mermaid
-graph LR
-    I[Inte] --> A[AWS]
-```
-
-### 55. Integration: Azure vWAN
-```mermaid
-graph LR
-    I[Inte] --> A[Azur]
-```
-
-### 56. Script: Provision Hub
-```mermaid
-graph LR
-    S[Scri] --> P[Prov]
-```
-
-### 57. Script: Validate Topology
-```mermaid
-graph LR
-    S[Scri] --> V[Vali]
-```
-
-### 58. Script: Enforce Rules
-```mermaid
-graph LR
-    S[Scri] --> E[Enfo]
-```
-
-### 59. Security: Network ACLs
-```mermaid
-graph LR
-    S[Secu] --> N[NetA]
+graph TD
+    Architect["Network Architect"] --> Hub["Manage Transit Hub"]
+    Owner["Spoke Owner"] --> Conn["Manage Spoke Attach"]
+    Auditor["Security Auditor"] --> View["Verify Traffic Logs"]
 ```
 
-### 60. Security: Traffic Mirroring
-```mermaid
-graph LR
-    S[Secu] --> T[Traf]
-```
-
-### 61. Metrics tracking: Provision Time
-```mermaid
-graph LR
-    M[Metr] --> P[Prov]
-```
-
-### 62. Metrics tracking: Latency
-```mermaid
-graph LR
-    M[Metr] --> L[Late]
-```
-
-### 63. Network intent map
-```mermaid
-graph LR
-    N[Netw] --> I[Inte]
-```
-
-### 64. KPI tracking: Uptime
-```mermaid
-graph LR
-    K[KPI] --> U[Upti]
-```
-
-### 65. KPI tracking: Drift
-```mermaid
-graph LR
-    K[KPI] --> D[Drif]
-```
-
-### 66. Optimization roadmap
-```mermaid
-graph LR
-    O[Opti] --> R[Road]
-```
-
-### 67. Value realization
-```mermaid
-graph LR
-    V[Valu] --> R[Real]
-```
-
-### 68. Institutional maturity
-```mermaid
-graph LR
-    I[Inst] --> M[Matu]
-```
-
-### 69. Strategy execution
-```mermaid
-graph LR
-    S[Stra] --> E[Exec]
-```
-
-### 70. Ecosystem map
-```mermaid
-graph LR
-    E[Ecos] --> M[Map]
-```
-
-### 71. Supply chain of intent
-```mermaid
-graph LR
-    S[Supp] --> I[Inte]
-```
-
-### 72. Landing zone blueprint
-```mermaid
-graph LR
-    L[Land] --> B[Blue]
-```
+### 9. IaC Deployment: Network-as-Code Framework
+Using modular Terraform to deploy and manage the versioned distribution of the network hubs, transit gateways, and forensic metadata lakes.
 
-### 73. Zero trust model map
 ```mermaid
 graph LR
-    Z[Zero] --> M[Map]
+    HCL["Infrastructure Code"] --> TF["Terraform Apply"]
+    TF --> Engine["Network Control Plane"]
+    Engine --> Hubs["HA Hub Networks"]
 ```
 
-### 74. Transformation roadmap
-```mermaid
-graph LR
-    T[Tran] --> R[Road]
-```
+### 10. Automated Subnet & IPAM Orchestration Flow
+Managing the dynamic allocation of CIDR blocks and subnets across thousands of workload spokes, ensuring zero IP overlap and optimal address utilization.
 
-### 75. Value realization model
 ```mermaid
 graph LR
-    V[Valu] --> R[Real]
+    Req["Spoke Request"] --> IPAM["IPAM Registry"]
+    IPAM -->|Allocate| CIDR["/24 CIDR Block"]
+    CIDR --> TF["Provision Subnets"]
+    TF --- AWS["AWS/Azure Resource"]
 ```
 
-### 76. Governance audit trail
-```mermaid
-graph LR
-    G[Govn] --> A[Audi]
-```
+### 11. Metadata Lake for Forensic Connectivity Audit
+Storing long-term records of every route change, peering event, and firewall policy update for institutional record-keeping, compliance auditing, and post-breach forensics.
 
-### 77. Security RBAC flow
 ```mermaid
 graph LR
-    S[Secu] --> R[RBAC]
+    Change["Routing Event"] --> Stream["Forensic Stream"]
+    Stream --> Lake["Network Metadata Lake"]
+    Lake --> Trends["Connectivity & Cost Trends"]
 ```
 
-### 78. Compliance validation
-```mermaid
-graph LR
-    C[Comp] --> V[Vali]
-```
+---
 
-### 79. Network boundary check
-```mermaid
-graph LR
-    N[Netw] --> B[Boun]
-```
+## 🏛️ Core Networking Pillars
 
-### 80. Executive summary hub
-```mermaid
-graph LR
-    E[Exec] --> H[Hub]
-```
+1.  **Standardized Hub-and-Spoke Topology**: Enforcing a consistent architectural pattern for all cloud environments.
+2.  **Centralized Transit Routing**: Simplifying multi-cloud and multi-region connectivity through managed transit gateways.
+3.  **Policy-Based Security Inspection**: Forcing all inter-segment traffic through centralized firewall clusters.
+4.  **Automated IP Address Management**: Eliminating the risk of IP overlap through centralized CIDR orchestration.
+5.  **Hybrid-Cloud Backbone Integration**: Seamlessly extending the corporate datacenter into the cloud network.
+6.  **Full Connectivity Auditability**: Immutable recording of every route change and peering event for institutional forensics.
 
 ---
 
 ## 🛠️ Technical Stack & Implementation
 
-### Orchestration & Routing Engine
-- **Processing**: Python 3.11+ / FastAPI.
-- **Topology**: Transit Gateway (AWS), Virtual WAN (Azure), Cloud Router (GCP).
-- **Security**: Policy-as-Code Network Firewalls and Security Groups.
+### Network Engine & APIs
+*   **Framework**: Python 3.11+ / FastAPI.
+*   **Routing Core**: Native integration with AWS Transit Gateway, Azure vWAN, and GCP Cloud Router.
+*   **IPAM Service**: Custom engine for orchestrating CIDR allocation and subnet management.
+*   **Security Hub**: Orchestration of AWS Network Firewall, Azure Firewall, and Third-party NGFWs.
+*   **Persistence**: PostgreSQL (Metadata Lake) and Redis (Routing Cache).
 
-### Frontend (Landing Zone Command Center)
-- **Framework**: React 18 / Vite
-- **Visuals**: Recharts (Network Lifecycles, Topology Maps, Compliance States).
-- **Theme**: Dark, Teal, and Slate (Institutional Cloud Networking Aesthetics).
+### Landing Zone Dashboard (UI)
+*   **Framework**: React 18 / Vite.
+*   **Theme**: Dark, Teal, Slate (Modern high-fidelity networking aesthetic).
+*   **Visualization**: D3.js for topology mapping and Recharts for network performance trends.
 
-### Infrastructure
-- **Cloud**: Multi-Cloud (AWS, Azure, GCP), AWS EKS (Runtime), RDS (Persistence).
-- **IaC**: Terraform (VPC, TGW, Route Tables, VPN, DNS, IAM).
+### Infrastructure & DevOps
+*   **Runtime**: AWS EKS or Azure Kubernetes Service (AKS).
+*   **Connectivity**: Dedicated Direct Connect/ExpressRoute circuits with redundant VPN failover.
+*   **IaC**: Modular Terraform for deploying the network hub and spoke distributions.
+
+---
+
+## 🏗️ IaC Mapping (Module Structure)
+
+| Module | Purpose | Real Services |
+| :--- | :--- | :--- |
+| **`infrastructure/hub`** | Central transit plane | TGW, Firewall, VPN |
+| **`infrastructure/spokes`** | Workload environment templates | VPC, Subnets, Peering |
+| **`infrastructure/dns`** | Private DNS orchestration | Route53, Private Zones |
+| **`infrastructure/auditing`** | Forensic connectivity sinks | S3, Athena, Quicksight |
 
 ---
 
 ## 🚀 Deployment Guide
 
-### Local Development
+### Local Principal Environment
 ```bash
-# Clone the repository
+# Clone the landing zone platform
 git clone https://github.com/devopstrio/network-landingzone.git
 cd network-landingzone
 
-# Setup environment
+# Configure environment
 cp .env.example .env
 
-# Launch the landing zone orchestration stack
-make up
+# Launch the Networking stack
+make init
+
+# Trigger a mock spoke provisioning and transit attachment simulation
+make simulate-provisioning
 ```
-Access the Hub Dashboard at `http://localhost:3000`.
+
+Access the Network Dashboard at `http://localhost:3000`.
 
 ---
 
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+<div align="center">
+  <p>© 2026 Devopstrio. All rights reserved.</p>
+</div>
